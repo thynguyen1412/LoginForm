@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Addy Ecommerce Dashboard</title>
+</head>
+<body>
+        <div class="container">
+        <div class="image-column">
+            <img src="Untitled.png" alt="Image">
+        </div>
+        <div class="form-column">
+        <div class="login-form">
+            <img src="ANDDY.png" class="center-image" alt="Image">
+            <h1>Đăng nhập vào</h1>
+            <h2>Addy Admin Dashboard </h2>
+            <form id="loginForm" action="#" method="POST">
+                <div class="from-group">
+                    <label for="username">Tên đăng nhập</label><br>
+                    <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+                        <span class="error-message" id="username-error" style="display: none;"></span>
+                </div>
+                <div class="from-group">
+                    <label for="password">Mật khẩu</label><br>
+                    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                        <span class="eye-icon" onclick="tongglePassword()">👁️</span>
+                        <span class="error-message" id="password-error" style="display: none;"></span>
+                </div>
+                    <button type="submit">Đăng Nhập</button>
+                    <button onclick="closeWindow()">Đóng</button>
+            </form>
+                </div>
+        </div>
+        </div>
+    <script>
+        function tongglePassword() {
+            var passwordField = document.getElementById("password");
+            var eyeIcon = document.querySelector(".eye-icon");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.innerText = "👁️";
+            } else {
+                passwordField.type = "password";
+                eyeIcon.innerText = "👁️";
+            }
+        }
+
+        document.getElementById("loginForm").addEventListener("submit",function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var isValid = true;
+                if (username.trim() === "") {
+                document.getElementById("username-error").innerText = "Tên đăng nhập không được để trống";
+                document.getElementById("username-error").style.display = "block";
+                isValid = false;
+
+                } else {
+                document.getElementById("username-error").style.display = "none";   
+                } 
+
+                if (password.trim() === "") {
+                document.getElementById("password-error").innerText = "Mật khẩu không được để trống";
+                document.getElementById("password-error").style.display = "block";
+                isValid = false;
+
+                } else {
+                document.getElementById("password-error").style.display = "none";   
+                }
+                if (isValid) {
+                    alert("Đăng nhập thành công!");
+                }
+            });
+        function closeWindow() {
+            window.close();
+        }
+    </script>
+</body>
+</html>
