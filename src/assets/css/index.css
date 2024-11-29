@@ -108,4 +108,6 @@ body {
     top: 71%;
     right: 100px;
     transform: translateZ(-95%);
+    width: 20px;
+    height: 20px;
   }

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
     <title>Addy Ecommerce Dashboard</title>
 </head>
 <body>
         <div class="container">
         <div class="image-column">
-            <img src="Untitled.png" alt="Image">
+            <img src="../assets/images/Untitled.png" alt="Image">
         </div>
         <div class="form-column">
         <div class="login-form">
-            <img src="ANDDY.png" class="center-image" alt="Image">
+            <img src="../assets/images/ANDDY.png" class="center-image" alt="Image">
             <h1>Đăng nhập vào</h1>
             <h2>Addy Admin Dashboard </h2>
             <form id="loginForm" action="#" method="POST">
@@ -26,7 +26,7 @@
                 <div class="from-group">
                     <label for="password">Mật khẩu</label><br>
                     <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
-                        <span class="eye-icon" onclick="tongglePassword()">👁️</span>
+                        <img class="eye-icon" onclick="tongglePassword()" src="../assets/svg/eye-off-svgrepo-com.svg" alt="show password"/>
                         <span class="error-message" id="password-error" style="display: none;"></span>
                 </div>
                     <button type="submit">Đăng Nhập</button>
