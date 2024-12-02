@@ -14,38 +14,36 @@
         </div>
         <div class="form-column">
         <div class="login-form">
-            <img src="../assets/images/ANDDY.png" class="center-image" alt="Image">
+            <img src="../assets/images/ANDDY.png" class="center-image" alt="Image 1">
             <h1>Đăng nhập vào</h1>
             <h2>Addy Admin Dashboard </h2>
             <form id="loginForm" action="#" method="POST">
-                <div class="from-group">
+                <div class="form-group">
                     <label for="username">Tên đăng nhập</label><br>
                     <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
                         <span class="error-message" id="username-error" style="display: none;"></span>
                 </div>
-                <div class="from-group">
+                <div class="form-group">
                     <label for="password">Mật khẩu</label><br>
                     <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
-                        <img class="eye-icon" onclick="tongglePassword()" src="../assets/svg/eye-off-svgrepo-com.svg" alt="show password"/>
+                        <img class="eye-icon" onclick="togglePassword()" src="../assets/svg/eye-off-svgrepo-com.svg" alt="show password"/>
                         <span class="error-message" id="password-error" style="display: none;"></span>
                 </div>
                     <button type="submit">Đăng Nhập</button>
-                    <button onclick="closeWindow()">Đóng</button>
+                    <button type="button" onclick="closeWindow()">Đóng</button>
             </form>
                 </div>
         </div>
         </div>
     <script>
-        function tongglePassword() {
+        function togglePassword() {
             var passwordField = document.getElementById("password");
             var eyeIcon = document.querySelector(".eye-icon");
 
             if (passwordField.type === "password") {
                 passwordField.type = "text";
-                eyeIcon.innerText = "👁️";
             } else {
                 passwordField.type = "password";
-                eyeIcon.innerText = "👁️";
             }
         }
 

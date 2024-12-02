@@ -12,7 +12,7 @@ body {
   .container {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
   
   
@@ -53,7 +53,7 @@ body {
   .login-form h2 {
     font-size: 20pt;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   .form-group {
@@ -74,7 +74,7 @@ body {
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding-right: 30px;
+    padding-right: 10px;
   }
   
   button {
@@ -101,9 +101,35 @@ body {
   .eye-icon {
     position: absolute;
     top: 68%;
-    right: 145px;
+    right: 0px;
     transform: translateZ(-50%);
-    width: 20px;
+    width: 40px;
     height: 20px;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+  .container {
+  flex-direction: column;
+  }
+  .image-column {
+    max-height: 25opx;
+  }
+  .form-column {
+    padding: 15px;
+  }
+  .login-form h1 {
+    font-size: 16px;
+  }
+  .login-form h2 {
+    font-size: 18px;
+  }
+  input[type="text"], input[type="password"] {
+    font-size: 12px;
+    padding: 8px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
