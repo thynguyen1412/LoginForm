@@ -1,9 +1,8 @@
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     margin: 0;
     padding: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,11 +12,7 @@ body {
   .container {
     display: flex;
     width: 100%;
-    max-width: 1200px;
-    height: 584px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
   }
   
   
@@ -31,11 +26,9 @@ body {
 
   .image-column img {
     width: auto;
-    height: 100%;
   }
 
   .form-column {
-    
     flex: 1;
     padding: 30px;
     display: flex;
@@ -65,6 +58,7 @@ body {
   
   .form-group {
     margin-bottom: 15px;
+    position: relative;
   }
   
   label {
@@ -80,6 +74,7 @@ body {
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    padding-right: 30px;
   }
   
   button {
@@ -105,9 +100,10 @@ body {
 
   .eye-icon {
     position: absolute;
-    top: 71%;
-    right: 100px;
-    transform: translateZ(-95%);
+    top: 68%;
+    right: 145px;
+    transform: translateZ(-50%);
     width: 20px;
     height: 20px;
+    cursor: pointer;
   }
