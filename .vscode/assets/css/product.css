@@ -1,12 +1,13 @@
 body {
-    background-color: rgb(249, 244, 244);
+    background-color: white;
 }
+
 .button-container {
     display: flex;
-    justify-content: flex-end;  
+    justify-content: flex-end;
     gap: 10px;
-    margin-top: -40px;  
-    padding-right: 20px;  
+    margin-top: -40px;
+    padding-right: 20px;
 }
 
 button {
@@ -16,20 +17,15 @@ button {
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: black;
+    background-color: white;
 }
-
 
 .sync-products {
     background-color: #007BFF;
 }
-
-
 .add-product {
-    background-color: orange; 
+    background-color: orange;
 }
-
-
 button::after {
     position: absolute;
     background-color: rgb(63, 155, 216);
@@ -42,18 +38,14 @@ button::after {
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
-
-
 .container {
     width: 80%;
-    margin: 0 auto;
+    margin: 0;
     background-color: white;
-    padding: 20px;
+    padding: 0px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: white;
 }
-
-/* Căn chỉnh phần tìm kiếm và lọc */
 .filter-inner {
     display: flex;
     gap: 10px;
@@ -63,7 +55,7 @@ button::after {
 .filter-input {
     padding: 8px 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(8, 8, 8);
     border-radius: 5px;
     width: 70%;
 }
@@ -81,18 +73,16 @@ button::after {
 .filter-button:hover {
     background-color: #0056b3;
 }
-
-/* Cấu trúc bảng sản phẩm */
 .product-table {
-    width: 100%;
+    width: 120%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 .product-table th, .product-table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid rgb(51, 50, 50);
 }
 
 .product-table th {
@@ -105,4 +95,65 @@ button::after {
 
 .product-table table {
     width: 100%;
+}
+
+.product-table button {
+    padding: 5px;
+}
+
+.product-table td:first-child {
+    text-align: left; 
+}
+
+.product-table td input[type="checkbox"] {
+    margin-right: 10px; 
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+.my-button {
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    background-color: #4CAF50;
+    font-size: 13PX;
 }

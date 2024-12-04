@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/product.css">
     <title>ADDY</title>
+    <link rel="stylesheet" href="../assets/css/product.css"> 
 </head>
 <body>
     <main id="body-content">
@@ -29,26 +29,104 @@
             <table class="product-table">
                 <thead>
                     <tr id="table1">
+                        <th>
+                            <input type="checkbox">
+                            
+                        </label>Mã sản phẩm
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo mã sản phẩm">
+                        </th>
                         <th>Hình ảnh</th>
-                        <th>Tên danh mục  
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo tên danh mục">
+                        <th>Tên sản phẩm
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo tên sản phẩm">
                         </th>
-                        <th>Khu vực áp dụng
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(2)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo khu vực áp dụng">
+                        <th>Giá bán 
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(2)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo giá bán">
                         </th>
-                        <th>Thứ tự hiển thị
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(3)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo thứ tự hiển thị">
+                        <th>Kho hàng 
                         </th>
-                        <th>Hiển thị trên app
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(4)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo hiển thị trên app">
+                        <th>Thứ tự hiển thị 
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(4)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo thứ tự hiển thị">
+                        </th>
+                        <th>Hiện thị trên app
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(5)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo hiển thị trên app">
                         </th>
                         <th>Trạng thái
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(5)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo trạng thái">
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(6)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo trạng thái">
                         </th>
-                        <th>Hành động</th>
+                        <th>Hành động </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td><input type="checkbox" id="product-111"> 111</td>
+                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" width="20px" height="20px"></td>
+                        <td>Áo thun nam</td>
+                        <td>150.000đ</td>
+                        <td>100</td>
+                        <td>1</td>
+                        <td><label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label></td>
+                        <td><button class="my-button">Đang bán</button></td>
+                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="product-112"> 112</td>
+                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Giày thể thao" width="20px" height="20px"></td>
+                        <td>Giày thể thao</td>
+                        <td>350.000đ</td>
+                        <td>50</td>
+                        <td>2</td>
+                        <td><label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label></td>
+                        <td><button class="my-button">Đang bán</button></td>
+                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="product-113"> 113</td>
+                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo sơ mi nữ" width="20px" height="20px"></td>
+                        <td>Áo sơ mi nữ</td>
+                        <td>250.000đ</td>
+                        <td>200</td>
+                        <td>3</td>
+                        <td><label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label></td>
+                        <td><button class="my-button">Đang bán</button></td>
+                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="product-114"> 114</td>
+                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Quần jeans" width="20px" height="20px"></td>
+                        <td>Quần jeans</td>
+                        <td>280.000đ</td>
+                        <td>150</td>
+                        <td>4</td>
+                        <td><label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label></td>
+                        <td><button class="my-button">Đang bán</button></td>
+                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="product-115"> 115</td>
+                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Đồng hồ nam" width="20px" height="20px"></td>
+                        <td>Đồng hồ nam</td>
+                        <td>500.000đ</td>
+                        <td>30</td>
+                        <td>5</td>
+                        <td><label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label></td>
+                        <td><button class="my-button">Đang bán</button></td>
+                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
