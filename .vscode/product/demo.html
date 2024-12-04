@@ -1,0 +1,64 @@
+<script>
+    let ascending = true;
+
+    const categories = [
+        { id: 1, name: "Danh mục A", region: "Toàn quốc", order: 1, appDisplay: "Hiển thị", status: "Đang hoạt động" },
+        { id: 2, name: "Danh mục B", region: "Miền Bắc", order: 2, appDisplay: "Không hiển thị", status: "Đã dừng" },
+        { id: 3, name: "Danh mục C", region: "Miền Nam", order: 3, appDisplay: "Hiển thị", status: "Đang hoạt động" },
+        { id: 4, name: "Danh mục D", region: "Miền Trung", order: 4, appDisplay: "Hiển thị", status: "Đang hoạt động" },
+    ];
+
+    function filterCategories() {
+        const filterText = document.getElementById("category-name").value.toLowerCase();  // Lấy giá trị tìm kiếm từ input
+
+        const filteredCategories = categories.filter(category => category.name.toLowerCase().includes(filterText));
+
+        displayCategories(filteredCategories);
+    }
+
+    function sortTable(columnIndex) {
+        const rows = Array.from(document.querySelectorAll('.product-table tbody tr'));
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[columnIndex].textContent.trim();
+            const cellB = rowB.cells[columnIndex].textContent.trim();
+            if (ascending) {
+                return cellA.localeCompare(cellB); 
+                return cellB.localeCompare(cellA);
+            }
+        });
+        ascending = !ascending;
+        const tbody = document.querySelector('.product-table tbody');
+        tbody.innerHTML = ''; 
+        tbody.append(...rows); 
+    }
+
+    function displayCategories(categories) {
+        const tbody = document.querySelector('.product-table tbody');
+        tbody.innerHTML = '';
+
+        if (categories.length > 0) {
+            categories.forEach(category => {
+                const row = document.createElement('tr');
+                row.classList.add('table2');
+                row.innerHTML = `
+                    <td>${category.id}</td>
+                    <td>${category.name}</td>
+                    <td>${category.region}</td>
+                    <td>${category.order}</td>
+                    <td>${category.appDisplay}</td>
+                    <td>${category.status}</td>
+                    <td><button>Chi tiết</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        } else {
+            const row = document.createElement('tr');
+            row.innerHTML = '<td colspan="7" style="text-align: center;">Không có danh mục nào phù hợp</td>';
+            tbody.appendChild(row);
+        }
+    }
+
+    window.onload = function() {
+        displayCategories(categories);
+    };
+</script>

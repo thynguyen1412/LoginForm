@@ -1,0 +1,108 @@
+body {
+    background-color: rgb(249, 244, 244);
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end;  
+    gap: 10px;
+    margin-top: -40px;  
+    padding-right: 20px;  
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+}
+
+
+.sync-products {
+    background-color: #007BFF;
+}
+
+
+.add-product {
+    background-color: orange; 
+}
+
+
+button::after {
+    position: absolute;
+    background-color: rgb(63, 155, 216);
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Căn chỉnh phần tìm kiếm và lọc */
+.filter-inner {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.filter-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+/* Cấu trúc bảng sản phẩm */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.product-table th, .product-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.product-table th {
+    background-color: #f4f4f4;
+}
+
+.product-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.product-table table {
+    width: 100%;
+}

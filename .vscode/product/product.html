@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/product.css">
+    <title>ADDY</title>
+</head>
+<body>
+    <main id="body-content">
+        <div>
+            <h1>Danh sách sản phẩm</h1>
+            <h2><img src="../assets/images/house-svgrepo-com.svg" width="20px" height="20px"> | Danh sách sản phẩm</h2>
+            <div class="button-container">
+                <button class="sync-products">Đồng bộ sản phẩm</button>
+                <button class="add-product">Thêm sản phẩm</button>
+            </div>
+        </div>
+        
+        <div class="container">
+            <form id="filter-form" action="#" method="POST" onsubmit="event.preventDefault(); filterCategories();">
+                <div class="filter-inner">
+                    <input type="text" id="category-name" name="category-name" placeholder="Tìm kiếm theo tên danh mục" class="filter-input">
+                    <span class="error-message" id="category-name-error" style="display: none;"></span>
+                    <button type="submit" class="filter-button">Lọc</button>
+                </div>
+            </form>
+
+            <table class="product-table">
+                <thead>
+                    <tr id="table1">
+                        <th>Hình ảnh</th>
+                        <th>Tên danh mục  
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo tên danh mục">
+                        </th>
+                        <th>Khu vực áp dụng
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(2)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo khu vực áp dụng">
+                        </th>
+                        <th>Thứ tự hiển thị
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(3)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo thứ tự hiển thị">
+                        </th>
+                        <th>Hiển thị trên app
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(4)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo hiển thị trên app">
+                        </th>
+                        <th>Trạng thái
+                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(5)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo trạng thái">
+                        </th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
