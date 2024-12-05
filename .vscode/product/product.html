@@ -4,132 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADDY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/product.css"> 
 </head>
-<body>
-    <main id="body-content">
-        <div>
-            <h1>Danh sách sản phẩm</h1>
-            <h2><img src="../assets/images/house-svgrepo-com.svg" width="20px" height="20px"> | Danh sách sản phẩm</h2>
-            <div class="button-container">
-                <button class="sync-products">Đồng bộ sản phẩm</button>
-                <button class="add-product">Thêm sản phẩm</button>
-            </div>
-        </div>
-        
-        <div class="container">
-            <form id="filter-form" action="#" method="POST" onsubmit="event.preventDefault(); filterCategories();">
-                <div class="filter-inner">
-                    <input type="text" id="category-name" name="category-name" placeholder="Tìm kiếm theo tên danh mục" class="filter-input">
-                    <span class="error-message" id="category-name-error" style="display: none;"></span>
-                    <button type="submit" class="filter-button">Lọc</button>
-                </div>
-            </form>
+<body class="bg-white">
 
-            <table class="product-table">
-                <thead>
-                    <tr id="table1">
-                        <th>
-                            <input type="checkbox">
-                            
-                        </label>Mã sản phẩm
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo mã sản phẩm">
-                        </th>
-                        <th>Hình ảnh</th>
-                        <th>Tên sản phẩm
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo tên sản phẩm">
-                        </th>
-                        <th>Giá bán 
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(2)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo giá bán">
-                        </th>
-                        <th>Kho hàng 
-                        </th>
-                        <th>Thứ tự hiển thị 
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(4)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo thứ tự hiển thị">
-                        </th>
-                        <th>Hiện thị trên app
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(5)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo hiển thị trên app">
-                        </th>
-                        <th>Trạng thái
-                            <img class="sort-descending-svgrepo-com" width="20px" height="20px" onclick="sortTable(6)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sắp xếp theo trạng thái">
-                        </th>
-                        <th>Hành động </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox" id="product-111"> 111</td>
-                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" width="20px" height="20px"></td>
-                        <td>Áo thun nam</td>
-                        <td>150.000đ</td>
-                        <td>100</td>
-                        <td>1</td>
-                        <td><label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label></td>
-                        <td><button class="my-button">Đang bán</button></td>
-                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="product-112"> 112</td>
-                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Giày thể thao" width="20px" height="20px"></td>
-                        <td>Giày thể thao</td>
-                        <td>350.000đ</td>
-                        <td>50</td>
-                        <td>2</td>
-                        <td><label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label></td>
-                        <td><button class="my-button">Đang bán</button></td>
-                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="product-113"> 113</td>
-                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo sơ mi nữ" width="20px" height="20px"></td>
-                        <td>Áo sơ mi nữ</td>
-                        <td>250.000đ</td>
-                        <td>200</td>
-                        <td>3</td>
-                        <td><label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label></td>
-                        <td><button class="my-button">Đang bán</button></td>
-                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="product-114"> 114</td>
-                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Quần jeans" width="20px" height="20px"></td>
-                        <td>Quần jeans</td>
-                        <td>280.000đ</td>
-                        <td>150</td>
-                        <td>4</td>
-                        <td><label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label></td>
-                        <td><button class="my-button">Đang bán</button></td>
-                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" id="product-115"> 115</td>
-                        <td><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Đồng hồ nam" width="20px" height="20px"></td>
-                        <td>Đồng hồ nam</td>
-                        <td>500.000đ</td>
-                        <td>30</td>
-                        <td>5</td>
-                        <td><label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label></td>
-                        <td><button class="my-button">Đang bán</button></td>
-                        <td><button><img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px"></button><button><img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px"></button></td>
-                    </tr>
-                </tbody>
-            </table>
+<main id="body-content" class="p-6">
+
+    <div class="mb-6">
+        <h1 class="text-4xl font-extrabold text-red-600">Danh sách sản phẩm</h1>
+        <h2 class="text-xl flex items-center space-x-2 text-green-600">
+            <img src="../assets/images/house-svgrepo-com.svg" width="20px" height="20px" alt="Home Icon">
+            <span>| Danh sách sản phẩm</span>
+        </h2>
+        <div class="flex justify-end gap-6 mt-6">
+            <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Đồng bộ sản phẩm</button>
+            <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">Thêm sản phẩm</button>
         </div>
-    </main>
+    </div>
+    <div class="bg-white shadow-xl rounded-lg p-6">
+
+        <!-- Filter Form -->
+        <form id="filter-form" action="#" method="POST" onsubmit="event.preventDefault(); filterCategories();">
+            <div class="flex items-center space-x-4 mb-6">
+                <input type="text" id="category-name" name="category-name" placeholder="Tìm kiếm theo tên danh mục" class="p-3 w-3/4 border border-gray-300 rounded-lg text-lg">
+                <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">Lọc</button>
+            </div>
+        </form>
+
+        <!-- Product Table -->
+        <table class="w-full table-auto border-collapse">
+            <thead>
+                <tr class="bg-red-100 text-left ">
+                    <th class="px-2 py-0">
+                        <input type="checkbox">
+                        Mã sản phẩm
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by product code">
+                    </th>
+                    <th class="px-2 py-0">Hình ảnh</th>
+                    <th class="px-2 py-0">
+                        Tên sản phẩm
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by product name">
+                    </th>
+                    <th class="px-2 py-0">
+                        Giá bán
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(2)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by price">
+                    </th>
+                    <th class="px-2 py-0">Kho hàng</th>
+                    <th class="px-2 py-0">
+                        Thứ tự hiển thị
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(4)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by display order">
+                    </th>
+                    <th class="px-2 py-0">
+                        Hiển thị trên app
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(5)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by app display">
+                    </th>
+                    <th class="px-2 py-0">
+                        Trạng thái
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(6)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by status">
+                    </th>
+                    <th class="px-2 py-0">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product Row 1 -->
+                <tr class="hover:bg-red-50 space-y-[10px]">
+                    <td class="px-2 py-0"><input type="checkbox" id="product-111"> 111</td>
+                    <td class="px-2 py-0"><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" class="w-10 h-10"></td>
+                    <td class="px-2 py-0">Áo thun nam</td>
+                    <td class="px-2 py-0">150.000đ</td>
+                    <td class="px-2 py-0">100</td>
+                    <td class="flex items-center justify-center">1</td>
+                    <td class="px-2 py-0">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-2 py-0 space-y-4 leading-loose">
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                    </td>
+                    <td class="px-5 py-3 space-x-2">
+                        <button class="text-yellow-600">
+                            <img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px" alt="Warning">
+                        </button>
+                        <button class="text-blue-500">
+                            <img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px" alt="Edit">
+                        </button>
+                        <button class="text-red-600">
+                            <img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px" alt="Delete">
+                        </button>
+                    </td>
+                </tr>
+                <tr class="hover:bg-red-50 space-y-[10px]">
+                    <td class="px-2 py-0"><input type="checkbox" id="product-112"> 112</td>
+                    <td class="px-2 py-0"><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" class="w-10 h-10"></td>
+                    <td class="px-2 py-0">Quần</td>
+                    <td class="px-2 py-0">200.000đ</td>
+                    <td class="px-2 py-0">100</td>
+                    <td class="flex items-center justify-center">2</td>
+                    <td class="px-2 py-0">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-2 py-0 space-y-4 leading-loose">
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                    </td>
+                    <td class="px-5 py-3 space-x-2 space-y-4">
+                        <button class="text-yellow-600">
+                            <img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px" alt="Warning">
+                        </button>
+                        <button class="text-blue-500">
+                            <img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px" alt="Edit">
+                        </button>
+                        <button class="text-red-600">
+                            <img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px" alt="Delete">
+                        </button>
+                    </td>
+                </tr>
+                <tr class="hover:bg-red-50 space-y-4 ">
+                    <td class="px-2 py-0"><input type="checkbox" id="product-113"> 113</td>
+                    <td class="px-2 py-0"><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" class="w-10 h-10"></td>
+                    <td class="px-2 py-0">Giày</td>
+                    <td class="px-2 py-0">300.000đ</td>
+                    <td class="px-2 py-0">100</td>
+                    <td class="flex items-center justify-center">3</td>
+                    <td class="px-2 py-0">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-2 py-0 space-y-4 leading-loose">
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                    </td>
+                    <td class="px-5 py-3 space-x-2 space-y-4">
+                        <button class="text-yellow-600">
+                            <img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px" alt="Warning">
+                        </button>
+                        <button class="text-blue-500">
+                            <img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px" alt="Edit">
+                        </button>
+                        <button class="text-red-600">
+                            <img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px" alt="Delete">
+                        </button>
+                    </td>
+                </tr>
+                <tr class="hover:bg-red-50 space-y-4">
+                    <td class="px-2 py-0"><input type="checkbox" id="product-114"> 114</td>
+                    <td class="px-2 py-0"><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" class="w-10 h-10"></td>
+                    <td class="px-2 py-0">Dép</td>
+                    <td class="px-2 py-0">500.000đ</td>
+                    <td class="px-2 py-0">100</td>
+                    <td class="flex items-center justify-center">4</td>
+                    <td class="px-2 py-0">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-2 py-0 space-y-4 leading-loose">
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                    </td>
+                    <td class="px-5 py-3 space-x-2 space-y-4">
+                        <button class="text-yellow-600">
+                            <img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px" alt="Warning">
+                        </button>
+                        <button class="text-blue-500">
+                            <img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px" alt="Edit">
+                        </button>
+                        <button class="text-red-600">
+                            <img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px" alt="Delete">
+                        </button>
+                    </td>
+                </tr>
+                <tr class="hover:bg-red-50 space-y-4 ">
+                    <td class="px-2 py-0"><input type="checkbox" id="product-115"> 115</td>
+                    <td class="px-2 py-0"><img src="../assets/images/camera-equipment-photo-2-svgrepo-com.svg" alt="Áo thun nam" class="w-10 h-10"></td>
+                    <td class="px-2 py-0">Đồng hồ</td>
+                    <td class="px-2 py-0">700.000đ</td>
+                    <td class="px-2 py-0">100</td>
+                    <td class="flex items-center justify-center">5</td>
+                    <td class="px-2 py-0">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td class="px-2 py-0 space-y-4 leading-loose">
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                    </td>
+                    <td class="px-5 py-3 space-x-2 space-y-4">
+                        <button class="text-yellow-600">
+                            <img src="../assets/images/exclamation-mark-circle-f-svgrepo-com.svg" height="15px" width="15px" alt="Warning">
+                        </button>
+                        <button class="text-blue-500">
+                            <img src="../assets/images/pen-square-svgrepo-com.svg" height="15px" width="15px" alt="Edit">
+                        </button>
+                        <button class="text-red-600">
+                            <img src="../assets/images/recycle-bin-svgrepo-com.svg" height="15px" width="15px" alt="Delete">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
 </body>
 </html>
