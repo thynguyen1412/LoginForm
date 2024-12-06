@@ -11,27 +11,25 @@
 
 <main id="body-content" class="p-6">
 
-    <div class="mb-6">
-        <h1 class="text-4xl font-extrabold text-red-600">Danh sách sản phẩm</h1>
-        <h2 class="text-xl flex items-center space-x-2 text-green-600">
+    <div class="mb-4">
+        <h1 class="text-3xl text-red-600">Danh sách sản phẩm</h1>
+        <h2 class="text-x0 flex items-center space-x-2 text-green-400">
             <img src="../assets/images/house-svgrepo-com.svg" width="20px" height="20px" alt="Home Icon">
             <span>| Danh sách sản phẩm</span>
         </h2>
-        <div class="flex justify-end gap-6 mt-6">
-            <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">Đồng bộ sản phẩm</button>
-            <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">Thêm sản phẩm</button>
+        <div class="flex justify-end gap-4">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-700 transition">Đồng bộ sản phẩm</button>
+            <button class="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition">Thêm sản phẩm</button>
         </div>
     </div>
-    <div class="bg-white shadow-xl rounded-lg p-6">
-
+    <div class="bg-white shadow-xl rounded-lg p-4">
         <!-- Filter Form -->
         <form id="filter-form" action="#" method="POST" onsubmit="event.preventDefault(); filterCategories();">
-            <div class="flex items-center space-x-4 mb-6">
-                <input type="text" id="category-name" name="category-name" placeholder="Tìm kiếm theo tên danh mục" class="p-3 w-3/4 border border-gray-300 rounded-lg text-lg">
-                <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition">Lọc</button>
+            <div class="flex items-center space-x-2 mb-2">
+                <input type="text" id="category-name" name="category-name" placeholder="Tìm kiếm theo tên danh mục" class="p-0 w-1/4 border border-gray-300 rounded-lg text-lg">
+                <button type="submit" class="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-500 transition">Lọc</button>
             </div>
         </form>
-
         <!-- Product Table -->
         <table class="w-full table-auto border-collapse">
             <thead>
@@ -39,7 +37,7 @@
                     <th class="px-2 py-0">
                         <input type="checkbox">
                         Mã sản phẩm
-                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(1)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by product code">
+                        <img class="inline-block cursor-pointer" width="20px" height="20px" onclick="sortTable(0)" src="../assets/images/sort-descending-svgrepo-com.svg" alt="Sort by product code">
                     </th>
                     <th class="px-2 py-0">Hình ảnh</th>
                     <th class="px-2 py-0">
@@ -76,13 +74,13 @@
                     <td class="px-2 py-0">100</td>
                     <td class="flex items-center justify-center">1</td>
                     <td class="px-2 py-0">
-                        <label class="switch">
+                        <label class="switch ">
                             <input type="checkbox" checked>
-                            <span class="slider"></span>
+                            <span class="slider "></span>
                         </label>
                     </td>
-                    <td class="px-2 py-0 space-y-4 leading-loose">
-                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                    <td class="px-2 py-1 space-y-3 leading-loose">
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 " onclick="toggleSaleStatus(this)">Đang bán</button>
                     </td>
                     <td class="px-5 py-3 space-x-2">
                         <button class="text-yellow-600">
@@ -110,7 +108,7 @@
                         </label>
                     </td>
                     <td class="px-2 py-0 space-y-4 leading-loose">
-                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 " onclick="toggleSaleStatus(this)">Đang bán</button>
                     </td>
                     <td class="px-5 py-3 space-x-2 space-y-4">
                         <button class="text-yellow-600">
@@ -138,7 +136,7 @@
                         </label>
                     </td>
                     <td class="px-2 py-0 space-y-4 leading-loose">
-                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 " onclick="toggleSaleStatus(this)">Đang bán</button>
                     </td>
                     <td class="px-5 py-3 space-x-2 space-y-4">
                         <button class="text-yellow-600">
@@ -166,7 +164,7 @@
                         </label>
                     </td>
                     <td class="px-2 py-0 space-y-4 leading-loose">
-                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 " onclick="toggleSaleStatus(this)">Đang bán</button>
                     </td>
                     <td class="px-5 py-3 space-x-2 space-y-4">
                         <button class="text-yellow-600">
@@ -194,7 +192,7 @@
                         </label>
                     </td>
                     <td class="px-2 py-0 space-y-4 leading-loose">
-                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 ">Đang bán</button>
+                        <button class="bg-green-500 text-white px-2 py-0 rounded-lg hover:bg-green-600 " onclick="toggleSaleStatus(this)">Đang bán</button>
                     </td>
                     <td class="px-5 py-3 space-x-2 space-y-4">
                         <button class="text-yellow-600">
@@ -212,5 +210,34 @@
         </table>
     </div>
 </main>
+<script> function toggleSaleStatus(button) {
+    if (button.innerText === "Đang bán") {
+        button.innerText = "Ngưng bán";
+        button.classList.remove("bg-green-500");
+        button.classList.add("bg-red-500");
+    } else {
+        button.innerText = "Đang bán";
+        button.classList.remove("bg-red-500");
+        button.classList.add("bg-green-500");
+    }
+}
+function sortTable(columnIndex) {
+        const table = document.getElementById("product-table");
+        const rows = Array.from(table.querySelectorAll("tbody tr"));
+        const isNumeric = columnIndex === 2 || columnIndex === 4; // Price and Stock are numeric
+        
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[columnIndex].innerText.trim();
+            const cellB = rowB.cells[columnIndex].innerText.trim();
+            
+            if (isNumeric) {
+                return parseFloat(cellA.replace(/[^\d.-]/g, '')) - parseFloat(cellB.replace(/[^\d.-]/g, ''));
+            }
+            return cellA.localeCompare(cellB);
+        });
+
+        rows.forEach(row => table.querySelector("tbody").appendChild(row));
+    }
+    </script>
 </body>
 </html>
