@@ -1,28 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const apiUrl = 'https://675283dfd1983b9597b66bc1.mockapi.io/api/products';
-    const tableBody = document.querySelector('#product-table tbody');
+const apiURL = 'https://675283dfd1983b9597b66bc1.mockapi.io/api/products';
 
-    async function fetchProducts() {
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error('Không thể kết nối API');
-            const products = await response.json();
-            displayProducts(products);
-        } catch (error) {
-            console.error('Lỗi khi lấy dữ liệu từ API:', error);
-            tableBody.innerHTML = `<tr><td colspan="9" class="text-center text-red-500">Không thể tải dữ liệu sản phẩm.</td></tr>`;
-        }
-    }
+// Lấy bảng từ DOM
+const tableBody = document.querySelector('#product-table tbody');
 
-    // Hàm hiển thị dữ liệu
-    function displayProducts(products) {
-
-
-        products.forEach(product => {
-            const row = document.createElement('tr');
-            row.className = 'hover:bg-red-50 space-y-4';
-            tableBody.appendChild(row);
-        });
-    }
-    fetchProducts();
-});
+// Lấy dữ liệu từ MockAPI
+fetch(apiURL)
+  .then(response => response.json())  // Chuyển đổi dữ liệu JSON
+  .then(data => {
+    // Lặp qua mỗi mục dữ liệu và chèn vào bảng
+    data.forEach(user => {
+      const row = document.createElement('tr');
+      
+      row.innerHTML = `
+        <td><input type="checkbox" class="checkbox" data-id="${user.Masanpham}"></td>
+        <td>${user.Masanpham}</td>
+        <td>${user.image}</td>
+        <td>${user.Tensanpham}</td>
+        <td>${user.giaban}</td>
+        <td>${user.khohang}</td>
+        <td>${user.thutuhienthi}</td>
+        `;
+      
+      // Thêm hàng vào bảng
+      tableBody.appendChild(row);
+    });
+  })
+  .catch(error => console.log('Lỗi khi lấy dữ liệu:', error));
