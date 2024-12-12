@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List - Christmas Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-green-50 min-h-screen flex flex-col justify-between">
+    <!-- Header -->
+    <header class="bg-red-600 text-white py-4 shadow-md">
+      <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-bold">🎄 CÁC CÔNG VIỆC CẦN LÀM 🎅</h1>
+        <p class="mt-2 text-lg">Lên kế hoạch cho một Giáng Sinh thật vui vẻ!</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      <div class="container mx-auto p-6">
+        <form
+          id="task-form"
+          class="flex flex-wrap gap-4 justify-center items-center"
+        >
+          <input
+            id="task-input"
+            type="text"
+            placeholder="Thêm công việc..."
+            class="flex-grow p-3 border rounded border-green-500 placeholder-green-400 focus:ring-2 focus:ring-green-500"
+          />
+          <select
+            id="task-category"
+            class="p-3 border rounded border-red-500 bg-red-50"
+          >
+            <option value="English">Tiếng Anh</option>
+            <option value="Coding">Lập trình</option>
+          </select>
+          <button
+            type="submit"
+            class="bg-red-500 text-white px-4 py-3 rounded hover:bg-red-600 transition-all"
+          >
+            Thêm
+          </button>
+        </form>
+
+        <div
+          id="tasks-container"
+          class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Hiển thị danh sách công việc -->
+        </div>
+
+        <!-- Close Button -->
+        <div class="mt-10 text-center">
+          <button
+            id="close-button"
+            class="bg-red-500 text-white px-6 py-3 rounded hover:bg-red-600 transition-all"
+          >
+            Đóng Trang
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p class="text-sm">
+          Chúc bạn có một Giáng Sinh an lành và hạnh phúc! 🎄
+        </p>
+      </div>
+    </footer>
+    <script>
+      const API_URL = "https://675283dfd1983b9597b66bc1.mockapi.io/api/bai4"; // Thay bằng URL của Mock API.
+
+      // Thêm công việc vào Mock API
+      async function addTaskToAPI(task) {
+        try {
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(task),
+          });
+          if (!response.ok) {
+            throw new Error("Lỗi khi thêm công việc vào API");
+          }
+          return await response.json();
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Không thể thêm công việc vào API.");
+        }
+      }
+
+      // Xử lý sự kiện submit form
+      document
+        .getElementById("task-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // Ngăn trình duyệt tải lại trang khi form được submit
+
+          // Lấy giá trị từ input và select
+          const taskInput = document.getElementById("task-input");
+          const taskCategory = document.getElementById("task-category");
+
+          const taskText = taskInput.value.trim();
+          const taskCat = taskCategory.value;
+
+          // Kiểm tra input rỗng
+          if (taskText === "") {
+            alert("Vui lòng nhập công việc.");
+            return;
+          }
+
+          // Tạo dữ liệu công việc
+          const newTask = {
+            text: taskText,
+            category: taskCat,
+          };
+
+          // Gửi công việc mới lên Mock API
+          const savedTask = await addTaskToAPI(newTask);
+          if (!savedTask) return; // Dừng nếu không thể lưu công việc
+
+          // Tạo phần tử công việc mới trong giao diện
+          const taskElement = document.createElement("div");
+          taskElement.className =
+            "p-4 border rounded shadow bg-white flex flex-col gap-2";
+
+          taskElement.innerHTML = `
+          <h3 class="text-lg font-semibold">${savedTask.text}</h3>
+          <p class="text-sm text-red-500">Chủ đề: ${savedTask.category}</p>
+          <button class="text-sm text-red-600 hover:underline remove-task">Xóa</button>
+        `;
+
+          // Thêm sự kiện xóa
+          taskElement
+            .querySelector(".remove-task")
+            .addEventListener("click", function () {
+              taskElement.remove();
+            });
+
+          // Thêm phần tử công việc vào danh sách
+          document.getElementById("tasks-container").appendChild(taskElement);
+
+          // Xóa input sau khi thêm
+          taskInput.value = "";
+          taskInput.focus();
+        });
+
+      // Nút đóng trang
+      document
+        .getElementById("close-button")
+        .addEventListener("click", function () {
+          window.close(); // Đóng tab hiện tại
+        });
+    </script>
+  </body>
+</html>
