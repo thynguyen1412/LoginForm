@@ -1,116 +1,267 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Danh sách công việc cần làm</title>
+    <title>To-Do List - Christmas Theme</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
   </head>
-  <body class="bg-gray-100">
-    <div class="container mx-auto p-6">
-      <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-bold text-blue-600">Danh sách cần làm</h1>
+  <body class="bg-green-50 min-h-screen flex flex-col justify-between">
+    <!-- Header -->
+    <header class="bg-red-600 text-white py-4 shadow-md">
+      <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-bold">🎄 CÁC CÔNG VIỆC CẦN LÀM 🎅</h1>
+        <p class="mt-2 text-lg">Lên kế hoạch cho một Giáng Sinh thật vui vẻ!</p>
       </div>
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-          <h2 class="text-xl font-semibold text-green-600 mb-4">
-            Học Tiếng Anh
-          </h2>
-          <ul id="english-tasks" class="space-y-4"></ul>
-          <ul class="space-y-4">
-            <li class="flex items-center">
-              <input
-                type="checkbox"
-                class="form-checkbox h-5 w-5 text-blue-500"
-                id="english-task-1"
-              />
-              <label for="english-task-1" class="ml-3"
-                >Luyện nghe qua podcast</label
-              >
-            </li>
-            <li class="flex items-center">
-              <input
-                type="checkbox"
-                class="form-checkbox h-5 w-5 text-blue-500"
-                id="english-task-2"
-              />
-              <label for="english-task-2" class="ml-3">Học từ vựng mới</label>
-            </li>
-            <li class="flex items-center">
-              <input
-                type="checkbox"
-                class="form-checkbox h-5 w-5 text-blue-500"
-                id="english-task-3"
-              />
-              <label for="english-task-3" class="ml-3"
-                >Luyện phát âm với ứng dụng</label
-              >
-            </li>
-          </ul>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      <div class="container mx-auto p-6">
+        <form
+          id="task-form"
+          class="flex flex-wrap gap-4 justify-center items-center"
+        >
+          <input
+            id="task-input"
+            type="text"
+            placeholder="Thêm công việc..."
+            class="flex-grow p-3 border rounded border-green-500 placeholder-green-400 focus:ring-2 focus:ring-green-500"
+          />
+          <select
+            id="task-category"
+            class="p-3 border rounded border-red-500 bg-red-50"
+          >
+            <option value="English">Tiếng Anh</option>
+            <option value="Coding">Lập trình</option>
+          </select>
+          <button
+            type="submit"
+            class="bg-red-500 text-white px-4 py-3 rounded hover:bg-red-600 transition-all"
+          >
+            Thêm
+          </button>
+        </form>
+
+        <div
+          id="tasks-container"
+          class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Hiển thị danh sách công việc -->
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-          <h2 class="text-xl font-semibold text-purple-600 mb-4">
-            Học Lập Trình
-          </h2>
-          <ul id="coding-tasks" class="space-y-4">
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <input
-                  type="checkbox"
-                  class="form-checkbox h-5 w-5 text-blue-500"
-                  id="coding-task-1"
-                />
-                <label for="coding-task-1" class="ml-3"
-                  >Làm bài tập JavaScript</label
-                >
-              </li>
-              <li class="flex items-center">
-                <input
-                  type="checkbox"
-                  class="form-checkbox h-5 w-5 text-blue-500"
-                  id="coding-task-2"
-                />
-                <label for="coding-task-2" class="ml-3"
-                  >Thực hành Git và GitHub</label
-                >
-              </li>
-              <li class="flex items-center">
-                <input
-                  type="checkbox"
-                  class="form-checkbox h-5 w-5 text-blue-500"
-                  id="coding-task-3"
-                />
-                <label for="coding-task-3" class="ml-3"
-                  >Học về API và Fetch</label
-                >
-              </li>
-            </ul>
-          </ul>
+        <!-- Close Button -->
+        <div class="mt-10 text-center">
+          <button
+            id="close-button"
+            class="bg-red-500 text-white px-6 py-3 rounded hover:bg-red-600 transition-all"
+          >
+            Đóng Trang
+          </button>
         </div>
       </div>
-    </div>
-    <div class="flex items-center justify-center bg-gray-100 space-x-4">
-      <button
-        class="flex justify-center items-center px-4 py-2 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition duration-300 rounded"
-        type="button"
-        onclick="addItem()"
-      >
-        Thêm
-      </button>
-      <button
-        class="flex px-4 py-2 border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition duration-300 rounded"
-        type="button"
-        onclick="closeWindow()"
-      >
-        Đóng
-      </button>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p class="text-sm">
+          Chúc bạn có một Giáng Sinh an lành và hạnh phúc! 🎄
+        </p>
+      </div>
+    </footer>
+
     <script>
-      function closeWindow() {
-        window.close();
+      const API_URL = "https://675283dfd1983b9597b66bc1.mockapi.io/api/bai4"; // Thay bằng URL của Mock API.
+
+      // Hàm lấy danh sách công việc từ Mock API
+      async function fetchTasksFromAPI() {
+        try {
+          const response = await fetch(API_URL);
+          if (!response.ok)
+            throw new Error("Lỗi khi lấy danh sách công việc từ API");
+          return await response.json();
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Không thể tải danh sách công việc.");
+          return [];
+        }
       }
+
+      // Hàm thêm công việc vào Mock API
+      async function addTaskToAPI(task) {
+        try {
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(task),
+          });
+          if (!response.ok) throw new Error("Lỗi khi thêm công việc vào API");
+          return await response.json();
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Không thể thêm công việc vào API.");
+        }
+      }
+
+      // Hàm cập nhật công việc lên Mock API
+      async function updateTaskInAPI(taskId, updates) {
+        try {
+          const response = await fetch(`${API_URL}/${taskId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updates),
+          });
+          if (!response.ok)
+            throw new Error("Lỗi khi cập nhật công việc lên API");
+          return await response.json();
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Không thể cập nhật công việc lên API.");
+        }
+      }
+
+      // Hàm xóa công việc từ Mock API
+      async function deleteTaskFromAPI(taskId) {
+        try {
+          const response = await fetch(`${API_URL}/${taskId}`, {
+            method: "DELETE",
+          });
+          if (!response.ok) throw new Error("Lỗi khi xóa công việc từ API");
+        } catch (error) {
+          console.error("Lỗi:", error);
+          alert("Không thể xóa công việc từ API.");
+        }
+      }
+
+      // Hàm hiển thị công việc trong giao diện
+      function renderTask(task) {
+        const taskElement = document.createElement("div");
+        taskElement.className =
+          "p-4 border rounded shadow bg-white flex flex-col gap-2";
+
+        taskElement.innerHTML = `
+          <h3 class="text-lg font-semibold">${task.text}</h3>
+          <p class="text-sm text-red-500">Chủ đề: ${task.category}</p>
+          <select class="status-dropdown p-2 border rounded">
+            <option value="Not Started" ${
+              task.status === "Not Started" ? "selected" : ""
+            }>Chưa hoàn thành</option>
+            <option value="In Progress" ${
+              task.status === "In Progress" ? "selected" : ""
+            }>Đang hoàn thành</option>
+            <option value="Completed" ${
+              task.status === "Completed" ? "selected" : ""
+            }>Đã hoàn thành</option>
+          </select>
+          <div class="flex gap-2">
+            <button class="text-sm text-blue-600 hover:underline edit-task">Chỉnh sửa</button>
+            <button class="text-sm text-red-600 hover:underline remove-task">Xóa</button>
+          </div>
+        `;
+
+        // Sự kiện thay đổi trạng thái
+        taskElement
+          .querySelector(".status-dropdown")
+          .addEventListener("change", async (e) => {
+            const newStatus = e.target.value;
+            try {
+              await updateTaskInAPI(task.id, { status: newStatus });
+              alert("Trạng thái đã được cập nhật!");
+            } catch (error) {
+              console.error("Lỗi:", error);
+              alert("Không thể cập nhật trạng thái.");
+            }
+          });
+
+        // Sự kiện chỉnh sửa công việc
+        taskElement
+          .querySelector(".edit-task")
+          .addEventListener("click", async () => {
+            const newText = prompt("Nhập lại công việc:", task.text);
+            const newCategory = prompt(
+              "Chọn lại chủ đề (English, Coding):",
+              task.category
+            );
+            if (!newText || !newCategory) return;
+
+            try {
+              const updatedTask = await updateTaskInAPI(task.id, {
+                text: newText,
+                category: newCategory,
+              });
+              task.text = updatedTask.text;
+              task.category = updatedTask.category;
+              taskElement.querySelector("h3").textContent = updatedTask.text;
+              taskElement.querySelector(
+                "p"
+              ).textContent = `Chủ đề: ${updatedTask.category}`;
+              alert("Công việc đã được cập nhật!");
+            } catch (error) {
+              console.error("Lỗi:", error);
+              alert("Không thể chỉnh sửa công việc.");
+            }
+          });
+
+        // Sự kiện xóa công việc
+        taskElement
+          .querySelector(".remove-task")
+          .addEventListener("click", async () => {
+            const confirmDelete = confirm(
+              "Bạn có chắc muốn xóa công việc này?"
+            );
+            if (!confirmDelete) return;
+            await deleteTaskFromAPI(task.id);
+            taskElement.remove();
+          });
+
+        // Thêm phần tử vào danh sách công việc
+        document.getElementById("tasks-container").appendChild(taskElement);
+      }
+
+      // Hàm khởi tạo danh sách công việc
+      async function initializeTasks() {
+        const tasks = await fetchTasksFromAPI();
+        tasks.forEach(renderTask);
+      }
+
+      // Xử lý sự kiện thêm công việc
+      document
+        .getElementById("task-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const taskInput = document.getElementById("task-input");
+          const taskCategory = document.getElementById("task-category");
+
+          const taskText = taskInput.value.trim();
+          const taskCat = taskCategory.value;
+
+          if (!taskText) {
+            alert("Vui lòng nhập công việc.");
+            return;
+          }
+
+          const newTask = {
+            text: taskText,
+            category: taskCat,
+            status: "Not Started",
+          };
+          const savedTask = await addTaskToAPI(newTask);
+          if (!savedTask) return;
+
+          renderTask(savedTask);
+          taskInput.value = "";
+          taskInput.focus();
+        });
+
+      // Nút đóng trang
+      document.getElementById("close-button").addEventListener("click", () => {
+        window.close();
+      });
+
+      // Khởi chạy khi tải trang
+      initializeTasks();
     </script>
   </body>
 </html>
